@@ -1,1 +1,2121 @@
-[]
+[
+    {
+        "id": "d360cd182f90146b",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "86fb111b4d93ac82",
+        "type": "tab",
+        "label": "N1MM Ingest",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "062a2aa707218ce1",
+        "type": "tab",
+        "label": "Create data.db",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5ab66de2994a2994",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0e31437fd6fb648b",
+        "type": "tab",
+        "label": "QRZ Look",
+        "disabled": false,
+        "info": "QRZ Lookup by call using call / password set in ENV",
+        "env": []
+    },
+    {
+        "id": "412c28f31105cc6d",
+        "type": "subflow",
+        "name": "N1MM Ingest UDP 12060",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": []
+            }
+        ],
+        "out": [
+            {
+                "x": 1190,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "8b8b482f966a4649",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1220,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "8b8b482f966a4649",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 1190,
+                "y": 420,
+                "wires": [
+                    {
+                        "id": "8b8b482f966a4649",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 1210,
+                "y": 560,
+                "wires": [
+                    {
+                        "id": "8b8b482f966a4649",
+                        "port": 3
+                    }
+                ]
+            },
+            {
+                "x": 1190,
+                "y": 720,
+                "wires": [
+                    {
+                        "id": "8b8b482f966a4649",
+                        "port": 4
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {
+            "module": "N1MM Ingest",
+            "desc": "Ingest N1mm"
+        },
+        "color": "#3FADB5",
+        "inputLabels": [
+            "UDP Port 12060"
+        ],
+        "outputLabels": [
+            "contactinfo",
+            "updatecontact",
+            "contactdelete",
+            "scores",
+            "radio"
+        ]
+    },
+    {
+        "id": "e32ad70bda925df7",
+        "type": "subflow",
+        "name": "N1MM Delete Contact",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": []
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "f90f1c7440868974",
+        "type": "subflow",
+        "name": "N1MM Replace Contact",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": []
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "78af5060ed4106c3",
+        "type": "subflow",
+        "name": "N1MM contactinfo",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 180,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "8cc6b6ed93f877ba"
+                    },
+                    {
+                        "id": "3f9a2f1e3f715258"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 380,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "78af5060ed4106c3",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "e403e0da8d7c2f82",
+        "type": "subflow",
+        "name": "N1MM Radio processing",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 200,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "9e65934432de964b"
+                    },
+                    {
+                        "id": "6b9002a89f8ab6ee"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "6aea2cd8a908c1c4",
+        "type": "subflow",
+        "name": "N1MM create data.db",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "8c6c30ddd10c4e52",
+        "type": "sqlitedb",
+        "db": "data.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "1b87498aac0d6406",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "4f23a2fcde504398",
+        "order": 1,
+        "disp": false,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4f23a2fcde504398",
+        "type": "ui_tab",
+        "name": "W0R Event Statistics",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d58b877fb471181c",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Special Event",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "e9c9de53fa44b3b7",
+        "type": "ui_spacer",
+        "z": "0e31437fd6fb648b",
+        "name": "spacer",
+        "group": "1b87498aac0d6406",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "dcf96accab8e0fe5",
+        "type": "ui_tab",
+        "name": "Contact Map",
+        "icon": "fa-map",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8866ce6d9b4b6082",
+        "type": "ui_group",
+        "name": "Contact map",
+        "tab": "dcf96accab8e0fe5",
+        "order": 1,
+        "disp": false,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cba81b64914b58c1",
+        "type": "udp in",
+        "z": "412c28f31105cc6d",
+        "name": "",
+        "iface": "",
+        "port": "12060",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "5c64e165bed09c86",
+                "1aea26f8b3c65e17"
+            ]
+        ]
+    },
+    {
+        "id": "e04651e0def67c26",
+        "type": "comment",
+        "z": "412c28f31105cc6d",
+        "name": "Data ingestion",
+        "info": "Receiving UDP data from N1MM on port 12060\n\nOnly concerned with scores, contacts and radio info (No DB storage)\n",
+        "x": 210,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1aea26f8b3c65e17",
+        "type": "debug",
+        "z": "412c28f31105cc6d",
+        "name": "RX 12060 debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "8b8b482f966a4649",
+        "type": "switch",
+        "z": "412c28f31105cc6d",
+        "name": "Switch to record type",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "contactinfo",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "contactreplace",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "contactdelete",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "dynamicresults",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "RadioInfo",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 5,
+        "x": 800,
+        "y": 360,
+        "wires": [
+            [
+                "4120bd0cd20f1c8c"
+            ],
+            [
+                "126567804723c07f"
+            ],
+            [
+                "5d56874727c814cc"
+            ],
+            [
+                "c1e338a7f8ef27a4"
+            ],
+            [
+                "9ae9362fd6aa9c41"
+            ]
+        ]
+    },
+    {
+        "id": "4120bd0cd20f1c8c",
+        "type": "debug",
+        "z": "412c28f31105cc6d",
+        "name": "contactinfo debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "126567804723c07f",
+        "type": "debug",
+        "z": "412c28f31105cc6d",
+        "name": "contactupdate debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "5d56874727c814cc",
+        "type": "debug",
+        "z": "412c28f31105cc6d",
+        "name": "contactdelete debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c1e338a7f8ef27a4",
+        "type": "debug",
+        "z": "412c28f31105cc6d",
+        "name": "scores debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "9ae9362fd6aa9c41",
+        "type": "debug",
+        "z": "412c28f31105cc6d",
+        "name": "radio debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5c64e165bed09c86",
+        "type": "xml2json",
+        "z": "412c28f31105cc6d",
+        "name": "Parse xml to json",
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "afa8a845e5230056",
+                "b855aef7f8e6ec11"
+            ]
+        ]
+    },
+    {
+        "id": "b855aef7f8e6ec11",
+        "type": "debug",
+        "z": "412c28f31105cc6d",
+        "name": "xml2json debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "afa8a845e5230056",
+        "type": "json",
+        "z": "412c28f31105cc6d",
+        "name": "To json object",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 640,
+        "y": 260,
+        "wires": [
+            [
+                "8b8b482f966a4649",
+                "7d5ea0ed32105002"
+            ]
+        ]
+    },
+    {
+        "id": "7d5ea0ed32105002",
+        "type": "debug",
+        "z": "412c28f31105cc6d",
+        "name": "xml2json result debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "bdbfc1f3ec8a0a39",
+        "type": "link in",
+        "z": "e32ad70bda925df7",
+        "name": "contactdelete In",
+        "links": [],
+        "x": 195,
+        "y": 160,
+        "wires": [
+            [
+                "4c52f8c5087d0e35"
+            ]
+        ]
+    },
+    {
+        "id": "4c52f8c5087d0e35",
+        "type": "template",
+        "z": "e32ad70bda925df7",
+        "name": "Delete contact template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DELETE FROM contacts \nWHERE ID = \"{{payload.contactdelete.ID}}\"",
+        "output": "str",
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "3733782d2f8f80cc",
+                "3412f77956f2ebc4"
+            ]
+        ]
+    },
+    {
+        "id": "3733782d2f8f80cc",
+        "type": "debug",
+        "z": "e32ad70bda925df7",
+        "name": "Delete contact template debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3412f77956f2ebc4",
+        "type": "sqlite",
+        "z": "e32ad70bda925df7",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Delete contact",
+        "x": 660,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1e6208ee0356309",
+        "type": "comment",
+        "z": "e32ad70bda925df7",
+        "name": "Delete contact notes",
+        "info": "The ID format is different from contactinfo and contactreplace.\n\ncontactdelete\n2a728cd1-a431-4f09-9b29-1854664dd267\n\ninfo and replace \n2a728cd1a4314f099b291854664dd267",
+        "x": 370,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e6697092168621da",
+        "type": "link in",
+        "z": "f90f1c7440868974",
+        "name": "contactupdate In",
+        "links": [],
+        "x": 195,
+        "y": 160,
+        "wires": [
+            [
+                "509a0aad2f898d72"
+            ]
+        ]
+    },
+    {
+        "id": "509a0aad2f898d72",
+        "type": "template",
+        "z": "f90f1c7440868974",
+        "name": "Replace contact template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "UPDATE contacts\nSET timestamp = \"{{payload.contactreplace.timestamp}}\",\n    mycall = \"{{payload.contactreplace.mycall}}\",\n    band = \"{{payload.contactreplace.band}}\",\n    mode = \"{{payload.contactreplace.mode}}\",\n    operator = \"{{payload.contactreplace.operator}}\",\n    call = \"{{payload.contactreplace.call}}\",\n    StationName = \"{{payload.contactreplace.StationName}}\"\nWHERE ID = \"{{payload.contactreplace.ID}}\"\n",
+        "output": "str",
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "f280e2da438a0129",
+                "b9a65ca744b01b4b"
+            ]
+        ]
+    },
+    {
+        "id": "f280e2da438a0129",
+        "type": "sqlite",
+        "z": "f90f1c7440868974",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Replace contact",
+        "x": 660,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9a65ca744b01b4b",
+        "type": "debug",
+        "z": "f90f1c7440868974",
+        "name": "Replace contact template debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8cc6b6ed93f877ba",
+        "type": "template",
+        "z": "78af5060ed4106c3",
+        "name": "Add contacts template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT INTO contacts (\n    app,\n    contestname,\n    contestnr,\n    timestamp,\n    mycall,\n    band,\n    rxfreq,\n    txfreq,\n    operator,\n    mode,\n    call,\n    countryprefix,\n    wpxprefix,\n    stationprefix,\n    continent,\n    snt,\n    sntnr,\n    rcv,\n    rcvnr,\n    gridsquare,\n    exchange1,\n    section,\n    comment,\n    qth,\n    name,\n    power,\n    misctext,\n    zone,\n    prec,\n    ck,\n    ismultiplier1,\n    ismultiplier2,\n    ismultiplier3,\n    points,\n    radionr,\n    run1run2,\n    RoverLocation,\n    RadioInterfaced,\n    NetworkedCompNr,\n    isOriginal,\n    NetBiosName,\n    IsRunQSO,\n    StationName,\n    ID,\n    IsClaimedQso\n)\nVALUES (\n    \"{{payload.contactinfo.app}}\",\n    \"{{payload.contactinfo.contestname}}\",\n    \"{{payload.contactinfo.contestnr}}\",\n    \"{{payload.contactinfo.timestamp}}\",\n    \"{{payload.contactinfo.mycall}}\",\n    \"{{payload.contactinfo.band}}\",\n    \"{{payload.contactinfo.rxfreq}}\",\n    \"{{payload.contactinfo.txfreq}}\",\n    \"{{payload.contactinfo.operator}}\",\n    \"{{payload.contactinfo.mode}}\",\n    \"{{payload.contactinfo.call}}\",\n    \"{{payload.contactinfo.countryprefix}}\",\n    \"{{payload.contactinfo.wpxprefix}}\",\n    \"{{payload.contactinfo.stationprefix}}\",\n    \"{{payload.contactinfo.continent}}\",\n    \"{{payload.contactinfo.snt}}\",\n    \"{{payload.contactinfo.sntnr}}\",\n    \"{{payload.contactinfo.rcv}}\",\n    \"{{payload.contactinfo.rcvnr}}\",\n    \"{{payload.contactinfo.gridsquare}}\",\n    \"{{payload.contactinfo.exchange1}}\",\n    \"{{payload.contactinfo.section}}\",\n    \"{{payload.contactinfo.comment}}\",\n    \"{{payload.contactinfo.qth}}\",\n    \"{{payload.contactinfo.name}}\",\n    \"{{payload.contactinfo.power}}\",\n    \"{{payload.contactinfo.misctext}}\",\n    \"{{payload.contactinfo.zone}}\",\n    \"{{payload.contactinfo.prec}}\",\n    \"{{payload.contactinfo.ck}}\",\n    \"{{payload.contactinfo.ismultiplier1}}\",\n    \"{{payload.contactinfo.ismultiplier2}}\",\n    \"{{payload.contactinfo.ismultiplier3}}\",\n    \"{{payload.contactinfo.points}}\",\n    \"{{payload.contactinfo.radionr}}\",\n    \"{{payload.contactinfo.run1run2}}\",\n    \"{{payload.contactinfo.RoverLocation}}\",\n    \"{{payload.contactinfo.RadioInterfaced}}\",\n    \"{{payload.contactinfo.NetworkCompNr}}\",\n    \"{{payload.contactinfo.IsOriginal}}\",\n    \"{{payload.contactinfo.NetBiosName}}\",\n    \"{{payload.contactinfo.IsRunQSO}}\",\n    \"{{payload.contactinfo.StationName}}\",\n    \"{{payload.contactinfo.ID}}\",\n    \"{{payload.contactinfo.IsClaimed}}\"\n);",
+        "output": "str",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "c6588d7d972f059e",
+                "3316828748fe9f70"
+            ]
+        ]
+    },
+    {
+        "id": "c6588d7d972f059e",
+        "type": "debug",
+        "z": "78af5060ed4106c3",
+        "name": "Add contact template debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3316828748fe9f70",
+        "type": "sqlite",
+        "z": "78af5060ed4106c3",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Add new contact",
+        "x": 670,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3f9a2f1e3f715258",
+        "type": "debug",
+        "z": "78af5060ed4106c3",
+        "name": "QRZ input",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9e65934432de964b",
+        "type": "debug",
+        "z": "e403e0da8d7c2f82",
+        "name": "RadioInfo In debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "6b9002a89f8ab6ee",
+        "type": "template",
+        "z": "e403e0da8d7c2f82",
+        "name": "RadioInfo template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT OR REPLACE INTO radios (\n    RadioName,\n    StationName,\n    CombinedId,\n    Freq,\n    Mode,\n    OpCall,\n    IsRunning\n)\nVALUES (\n    \"{{payload.RadioInfo.RadioName}}\",\n    \"{{payload.RadioInfo.StationName}}\",\n    \"{{payload.RadioInfo.StationName}}-{{payload.RadioInfo.RadioNr}}-{{payload.RadioInfo.RadioName}}\",\n    \"{{payload.RadioInfo.Freq}}\",\n    \"{{payload.RadioInfo.Mode}}\",\n    \"{{payload.RadioInfo.OpCall}}\",\n    \"{{payload.RadioInfo.IsRunning}}\"\n);",
+        "output": "str",
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "1671907c89c326ed",
+                "0898d75661049def"
+            ]
+        ]
+    },
+    {
+        "id": "1671907c89c326ed",
+        "type": "debug",
+        "z": "e403e0da8d7c2f82",
+        "name": "RadioInfo template debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "0898d75661049def",
+        "type": "sqlite",
+        "z": "e403e0da8d7c2f82",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "RadioInfo db",
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "252fb77a5921ca0c"
+            ]
+        ]
+    },
+    {
+        "id": "252fb77a5921ca0c",
+        "type": "debug",
+        "z": "e403e0da8d7c2f82",
+        "name": "RadioInfo insert or replace",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1dd0093bbdd12b93",
+        "type": "comment",
+        "z": "6aea2cd8a908c1c4",
+        "name": "DB creation",
+        "info": "# DB Creation\n\nCreate db data.db in current directory (.node-red)\nCreate tables if they don't exist\n - TBL - scores\n - call (IDX)\n - contest\n - score\n - timestamp\n\nTBL - radio (may not need, live data)\n - RadioName\n - StationName\n - Freq\n - Mode\n - OpCall\n\nTBL - contacts\n - timestamp\n - mycall\n - band\n - txfreq\n - rxfreq\n - operator\n - mode\n - call\n - StationName\n - id\n\n",
+        "x": 190,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e3baf04fd4037699",
+        "type": "inject",
+        "z": "6aea2cd8a908c1c4",
+        "name": "Start DB creation",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "e85a4c76c929217c"
+            ]
+        ]
+    },
+    {
+        "id": "db2a53a8dd926608",
+        "type": "debug",
+        "z": "6aea2cd8a908c1c4",
+        "name": "Add scores tbl debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1c96b3abefa1e2a4",
+        "type": "debug",
+        "z": "6aea2cd8a908c1c4",
+        "name": "Add contacts table debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e85a4c76c929217c",
+        "type": "sqlite",
+        "z": "6aea2cd8a908c1c4",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE IF NOT EXISTS scores (\n    \"timestamp\" TEXT,\n    \"score\" TEXT,\n    \"call\" TEXT \n);\n",
+        "name": "Add scores table",
+        "x": 470,
+        "y": 200,
+        "wires": [
+            [
+                "db2a53a8dd926608",
+                "b1738c5589292588"
+            ]
+        ]
+    },
+    {
+        "id": "32bd546b2a5aaf5b",
+        "type": "sqlite",
+        "z": "6aea2cd8a908c1c4",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE IF NOT EXISTS contacts (\n    \"app\" TEXT,\n    \"contestname\" TEXT,\n    \"contestnr\" TEXT,\n    \"timestamp\" TEXT,\n    \"mycall\" TEXT,\n    \"band\" TEXT,\n    \"rxfreq\" TEXT,\n    \"txfreq\" TEXT,\n    \"operator\" TEXT,\n    \"mode\" TEXT,\n    \"call\" TEXT,\n    \"countryprefix\" TEXT,\n    \"wpxprefix\" TEXT,\n    \"stationprefix\" TEXT,\n    \"continent\" TEXT,\n    \"snt\" TEXT,\n    \"sntnr\" TEXT,\n    \"rcv\" TEXT,\n    \"rcvnr\" TEXT,\n    \"gridsquare\" TEXT,\n    \"exchange1\" TEXT,\n    \"section\" TEXT,\n    \"comment\" TEXT,\n    \"qth\" TEXT,\n    \"name\" TEXT,\n    \"power\" TEXT,\n    \"misctext\" TEXT,\n    \"zone\" TEXT,\n    \"prec\" TEXT,\n    \"ck\" TEXT,\n    \"ismultiplier1\" TEXT,\n    \"ismultiplier2\" TEXT,\n    \"ismultiplier3\" TEXT,\n    \"points\" TEXT,\n    \"radionr\" TEXT,\n    \"run1run2\" TEXT,\n    \"RoverLocation\" TEXT,\n    \"RadioInterfaced\" TEXT,\n    \"NetworkedCompNr\" TEXT,\n    \"IsOriginal\" TEXT,\n    \"NetBiosName\" TEXT,\n    \"IsRunQSO\" TEXT,\n    \"StationName\" TEXT,\n    \"ID\" TEXT,\n    \"IsClaimedQso\" TEXT\n);",
+        "name": "Add contacts table",
+        "x": 1050,
+        "y": 200,
+        "wires": [
+            [
+                "1c96b3abefa1e2a4",
+                "50a227d3bf2a32ac"
+            ]
+        ]
+    },
+    {
+        "id": "b1738c5589292588",
+        "type": "sqlite",
+        "z": "6aea2cd8a908c1c4",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE INDEX IF NOT EXISTS call_idx on scores(call);",
+        "name": "Add scores IDX",
+        "x": 760,
+        "y": 200,
+        "wires": [
+            [
+                "32bd546b2a5aaf5b",
+                "9f527283f5a01ba2"
+            ]
+        ]
+    },
+    {
+        "id": "9f527283f5a01ba2",
+        "type": "debug",
+        "z": "6aea2cd8a908c1c4",
+        "name": "Add IDX debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "614db807fa663ae9",
+        "type": "sqlite",
+        "z": "6aea2cd8a908c1c4",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE IF NOT EXISTS radios (\n\"RadioName\" TEXT,\n\"StationName\" TEXT,\n\"CombinedId\" TEXT UNIQUE,\n\"Freq\" TEXT,\n\"Mode\" TEXT,\n\"OpCall\" TEXT,\n\"IsRunning\" INT\n);",
+        "name": "Add radio table",
+        "x": 1480,
+        "y": 200,
+        "wires": [
+            [
+                "585b2da2f86752b3"
+            ]
+        ]
+    },
+    {
+        "id": "585b2da2f86752b3",
+        "type": "debug",
+        "z": "6aea2cd8a908c1c4",
+        "name": "Add radios table debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1490,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "50a227d3bf2a32ac",
+        "type": "sqlite",
+        "z": "6aea2cd8a908c1c4",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE INDEX IF NOT EXISTS ID_Idx on contacts(ID);",
+        "name": "Add contacts IDX",
+        "x": 1270,
+        "y": 200,
+        "wires": [
+            [
+                "614db807fa663ae9",
+                "a133f84fd47e7b6f"
+            ]
+        ]
+    },
+    {
+        "id": "a133f84fd47e7b6f",
+        "type": "debug",
+        "z": "6aea2cd8a908c1c4",
+        "name": "Add IDX on contacts.ID debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "49a5c3a1f8e74090",
+        "type": "subflow:412c28f31105cc6d",
+        "z": "86fb111b4d93ac82",
+        "name": "N1MM ingest",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "b033fe2f9488d293",
+                "a1630f514cc8f6d5"
+            ],
+            [
+                "d001e74bb94f0dca",
+                "28fd6780a8a4c5e4"
+            ],
+            [
+                "a62d7b4724aa71a4"
+            ],
+            [],
+            [
+                "5cc11c191a1ce5fc",
+                "fa92f0e45a810519"
+            ]
+        ]
+    },
+    {
+        "id": "b033fe2f9488d293",
+        "type": "subflow:78af5060ed4106c3",
+        "z": "86fb111b4d93ac82",
+        "name": "",
+        "x": 730,
+        "y": 180,
+        "wires": [
+            [
+                "694cbdb0d2e75b43",
+                "c2b87b45ecc6544c"
+            ]
+        ]
+    },
+    {
+        "id": "d001e74bb94f0dca",
+        "type": "subflow:f90f1c7440868974",
+        "z": "86fb111b4d93ac82",
+        "name": "",
+        "x": 730,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a62d7b4724aa71a4",
+        "type": "subflow:e32ad70bda925df7",
+        "z": "86fb111b4d93ac82",
+        "name": "",
+        "x": 720,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "5cc11c191a1ce5fc",
+        "type": "subflow:e403e0da8d7c2f82",
+        "z": "86fb111b4d93ac82",
+        "name": "",
+        "x": 730,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a1630f514cc8f6d5",
+        "type": "debug",
+        "z": "86fb111b4d93ac82",
+        "name": "contactinfo debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "28fd6780a8a4c5e4",
+        "type": "debug",
+        "z": "86fb111b4d93ac82",
+        "name": "replacecontact debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "fa92f0e45a810519",
+        "type": "debug",
+        "z": "86fb111b4d93ac82",
+        "name": "radio debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5f888138ad55c842",
+        "type": "debug",
+        "z": "86fb111b4d93ac82",
+        "name": "Ingest out to QRZ debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d0df9de26adf42e3",
+        "type": "link out",
+        "z": "86fb111b4d93ac82",
+        "name": "Qrz lookup out",
+        "mode": "link",
+        "links": [
+            "05ab82f3915795d1"
+        ],
+        "x": 1205,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "694cbdb0d2e75b43",
+        "type": "debug",
+        "z": "86fb111b4d93ac82",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c2b87b45ecc6544c",
+        "type": "change",
+        "z": "86fb111b4d93ac82",
+        "name": "Set call and iconColor",
+        "rules": [
+            {
+                "t": "set",
+                "p": "call",
+                "pt": "msg",
+                "to": "payload.contactinfo.call",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "iconColor",
+                "pt": "msg",
+                "to": "payload.contactinfo.mode",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 180,
+        "wires": [
+            [
+                "5f888138ad55c842",
+                "d0df9de26adf42e3"
+            ]
+        ]
+    },
+    {
+        "id": "759b271b2b8ae5c2",
+        "type": "subflow:6aea2cd8a908c1c4",
+        "z": "062a2aa707218ce1",
+        "name": "",
+        "x": 220,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2ed2a51ec97a852e",
+        "type": "template",
+        "z": "5ab66de2994a2994",
+        "name": "Get radios",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "select * from radios;",
+        "output": "str",
+        "x": 490,
+        "y": 380,
+        "wires": [
+            [
+                "090995254a0e054d"
+            ]
+        ]
+    },
+    {
+        "id": "090995254a0e054d",
+        "type": "sqlite",
+        "z": "5ab66de2994a2994",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Get radios",
+        "x": 690,
+        "y": 380,
+        "wires": [
+            [
+                "b6247c47104029c0",
+                "4d023af06d0f8714"
+            ]
+        ]
+    },
+    {
+        "id": "1b3f38ed11630037",
+        "type": "ui_template",
+        "z": "5ab66de2994a2994",
+        "group": "1b87498aac0d6406",
+        "name": "Display event radios",
+        "order": 1,
+        "width": 20,
+        "height": 2,
+        "format": "<style>\n\n@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=M+PLUS+Rounded+1c:wght@800&family=Mohave:wght@300&family=Montserrat:wght@200&family=Orbitron&display=swap');\n\n.freq-text {\n    font-family: 'M PLUS Rounded 1c', sans-serif;\n    font-size: 20x !important;\n    color: green !important;\n    text-align: center;\n}\n</style>\n<!--font-family: 'Aclonica', sans-serif;-->\n<!--font-family: 'M PLUS Rounded 1c', sans-serif;-->\n<!--font-family: 'Mohave', sans-serif;-->\n<!--font-family: 'Montserrat', sans-serif;-->\n<!--font-family: 'Orbitron', sans-serif;-->\n<div style=\"text-align:center;color:green;font-size:50px;font-family: 'M PLUS Rounded 1c', sans-serif;\">Operating on {{msg.payload}}</div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1040,
+        "y": 280,
+        "wires": [
+            [
+                "b02bef89dc845144"
+            ]
+        ]
+    },
+    {
+        "id": "b6247c47104029c0",
+        "type": "debug",
+        "z": "5ab66de2994a2994",
+        "name": "Display radio debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "eafe779fddfd81a9",
+        "type": "inject",
+        "z": "5ab66de2994a2994",
+        "name": "Retrieve stats inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 520,
+        "wires": [
+            [
+                "4db5b55fedc08463",
+                "2ed2a51ec97a852e",
+                "936e2c0d994b5ded"
+            ]
+        ]
+    },
+    {
+        "id": "4db5b55fedc08463",
+        "type": "template",
+        "z": "5ab66de2994a2994",
+        "name": "Get contacts template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "select strftime('%H:%M', timestamp) as time, call, mode, txfreq, snt, rcv \nfrom contacts\norder by time DESC\nLIMIT 15;",
+        "output": "str",
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "71d9028bfd333abc"
+            ]
+        ]
+    },
+    {
+        "id": "71d9028bfd333abc",
+        "type": "sqlite",
+        "z": "5ab66de2994a2994",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Get contacts sql",
+        "x": 800,
+        "y": 520,
+        "wires": [
+            [
+                "9d16b48384dbfd08",
+                "7dde2b2b8a061d07"
+            ]
+        ]
+    },
+    {
+        "id": "9d16b48384dbfd08",
+        "type": "debug",
+        "z": "5ab66de2994a2994",
+        "name": "Display contacts template",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b02bef89dc845144",
+        "type": "debug",
+        "z": "5ab66de2994a2994",
+        "name": "Template render debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "936e2c0d994b5ded",
+        "type": "template",
+        "z": "5ab66de2994a2994",
+        "name": "Get contact count template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT count(*) as contacts from contacts;",
+        "output": "str",
+        "x": 560,
+        "y": 620,
+        "wires": [
+            [
+                "44c854c4b3a137cc"
+            ]
+        ]
+    },
+    {
+        "id": "44c854c4b3a137cc",
+        "type": "sqlite",
+        "z": "5ab66de2994a2994",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Get contacts sql",
+        "x": 820,
+        "y": 620,
+        "wires": [
+            [
+                "9d28fe379a5c9c8e",
+                "fbab1bd6b0871019"
+            ]
+        ]
+    },
+    {
+        "id": "9d28fe379a5c9c8e",
+        "type": "debug",
+        "z": "5ab66de2994a2994",
+        "name": "Get contact count SQL debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "4d023af06d0f8714",
+        "type": "function",
+        "z": "5ab66de2994a2994",
+        "name": "",
+        "func": "var newMsg = { payload: msg.payload.length };\n// node.warn(\"payload\", msg)\nvar freq = msg.payload[0].Freq;\nvar mode = msg.payload[0].Mode;\nvar hz = freq.slice(-2);\nvar khz = freq.slice(-5,-2);\nvar mhz = freq.slice(0,-5);\n\n//    radios.push(mhz.toString() + '.' + khz.toString() + '.' + hz.toString() + \"   Mode: \" + mode);\n\nmsg.payload = mhz.toString() + '.' + khz.toString() + '.' + hz.toString() + \"   Mode: \" + mode;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 280,
+        "wires": [
+            [
+                "1b3f38ed11630037",
+                "4a053504adc57403"
+            ]
+        ]
+    },
+    {
+        "id": "4a053504adc57403",
+        "type": "debug",
+        "z": "5ab66de2994a2994",
+        "name": "function debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "fbab1bd6b0871019",
+        "type": "ui_template",
+        "z": "5ab66de2994a2994",
+        "group": "1b87498aac0d6406",
+        "name": "Display contact count",
+        "order": 2,
+        "width": "20",
+        "height": "2",
+        "format": "<style>\n\n@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=M+PLUS+Rounded+1c:wght@800&family=Mohave:wght@300&family=Montserrat:wght@200&family=Orbitron&display=swap');\n\n.contacts {\n    font-family: 'M PLUS Rounded 1c', sans-serif;\n    font-size: 20x !important;\n    color: green !important;\n}\n</style>\n<!--font-family: 'Aclonica', sans-serif;-->\n<!--font-family: 'M PLUS Rounded 1c', sans-serif;-->\n<!--font-family: 'Mohave', sans-serif;-->\n<!--font-family: 'Montserrat', sans-serif;-->\n<!--font-family: 'Orbitron', sans-serif;-->\n<div style=\"text-align:center;color:blue;font-size:30px;font-family: 'M PLUS Rounded 1c', sans-serif;\">Contacts so far {{msg.payload[0].contacts}}</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1080,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7dde2b2b8a061d07",
+        "type": "ui_table",
+        "z": "5ab66de2994a2994",
+        "group": "1b87498aac0d6406",
+        "name": "Display contacts",
+        "order": 3,
+        "width": 20,
+        "height": 10,
+        "columns": [
+            {
+                "field": "time",
+                "title": "Time",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "call",
+                "title": "Callsign",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "txfreq",
+                "title": "Freq",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "mode",
+                "title": "Mode",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1040,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "da8bb7d2e78d16a6",
+        "type": "comment",
+        "z": "0e31437fd6fb648b",
+        "name": "Set up ENV",
+        "info": "\nAdd the following to settings.js, just above module.exports = {\n    \n\n\nprocess.env.QRZ_PASS='ChangeMe'\nprocess.env.QRZ_USER='W1AW'\n\n\nmodule.exports = {\n\n",
+        "x": 170,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "05ab82f3915795d1",
+        "type": "link in",
+        "z": "0e31437fd6fb648b",
+        "name": "QRZ lookup In",
+        "links": [
+            "d0df9de26adf42e3"
+        ],
+        "x": 155,
+        "y": 220,
+        "wires": [
+            [
+                "82cb9da6d1bfa0d9",
+                "99d21b03176e42be"
+            ]
+        ]
+    },
+    {
+        "id": "82cb9da6d1bfa0d9",
+        "type": "debug",
+        "z": "0e31437fd6fb648b",
+        "name": "QRZ Lookup In debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "99d21b03176e42be",
+        "type": "function",
+        "z": "0e31437fd6fb648b",
+        "name": "Get QRZ_USER from ENV",
+        "func": "msg.qrzuser = env.get(\"QRZ_USER\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 220,
+        "wires": [
+            [
+                "769feedebe5344c5"
+            ]
+        ]
+    },
+    {
+        "id": "769feedebe5344c5",
+        "type": "function",
+        "z": "0e31437fd6fb648b",
+        "name": "Get QRZ_PASS from ENV",
+        "func": "msg.qrzpass = env.get(\"QRZ_PASS\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 220,
+        "wires": [
+            [
+                "efeb31a29b60d8b0",
+                "643f20d1c97ee7d1"
+            ]
+        ]
+    },
+    {
+        "id": "2e431b616b47f984",
+        "type": "http request",
+        "z": "0e31437fd6fb648b",
+        "name": "Get QRZ data",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://xmldata.qrz.com/xml/current/?username={{qrzuser}};password={{qrzpass}};callsign={{call}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "bf2eb012bb35647f",
+                "f4b4a161f4479e2a"
+            ]
+        ]
+    },
+    {
+        "id": "bf2eb012bb35647f",
+        "type": "xml",
+        "z": "0e31437fd6fb648b",
+        "name": "",
+        "property": "payload",
+        "attr": "",
+        "chr": "",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "c707df3a7d8c3aec",
+                "d1387cc1037fbd58"
+            ]
+        ]
+    },
+    {
+        "id": "a4377aaba42f9dd3",
+        "type": "change",
+        "z": "0e31437fd6fb648b",
+        "name": "Set map properties",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "payload.QRZDatabase.Callsign[0].call[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.lat",
+                "pt": "msg",
+                "to": "payload.QRZDatabase.Callsign[0].lat[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.lon",
+                "pt": "msg",
+                "to": "payload.QRZDatabase.Callsign[0].lon[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.icon",
+                "pt": "msg",
+                "to": "fa-map-pin",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.ttl",
+                "pt": "msg",
+                "to": "45000",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.freq",
+                "pt": "msg",
+                "to": "original.freq",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.iconColor",
+                "pt": "msg",
+                "to": "iconColor",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.QRZDatabase",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 420,
+        "wires": [
+            [
+                "44ef710fb942b6c5",
+                "6cb17a0b3e309c93"
+            ]
+        ]
+    },
+    {
+        "id": "44ef710fb942b6c5",
+        "type": "ui_worldmap",
+        "z": "0e31437fd6fb648b",
+        "group": "8866ce6d9b4b6082",
+        "order": 3,
+        "width": "20",
+        "height": "15",
+        "name": "Contact map",
+        "lat": "39.55",
+        "lon": "-104.5",
+        "zoom": "",
+        "layer": "OSMC",
+        "cluster": "",
+        "maxage": "45000",
+        "usermenu": "hide",
+        "layers": "hide",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "none",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriDG",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 1110,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f4b4a161f4479e2a",
+        "type": "debug",
+        "z": "0e31437fd6fb648b",
+        "name": "Get QRZ data debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "efeb31a29b60d8b0",
+        "type": "debug",
+        "z": "0e31437fd6fb648b",
+        "name": "before qrz lookup ",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6cb17a0b3e309c93",
+        "type": "debug",
+        "z": "0e31437fd6fb648b",
+        "name": "map payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c707df3a7d8c3aec",
+        "type": "debug",
+        "z": "0e31437fd6fb648b",
+        "name": "QRZ XML",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "643f20d1c97ee7d1",
+        "type": "function",
+        "z": "0e31437fd6fb648b",
+        "name": "Get HOME_LAT",
+        "func": "msg.homelat = env.get(\"HOME_LAT\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 220,
+        "wires": [
+            [
+                "affd383cb62b096d"
+            ]
+        ]
+    },
+    {
+        "id": "affd383cb62b096d",
+        "type": "function",
+        "z": "0e31437fd6fb648b",
+        "name": "Get home LON",
+        "func": "msg.homelon = env.get(\"HOME_LON\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 220,
+        "wires": [
+            [
+                "2e431b616b47f984"
+            ]
+        ]
+    },
+    {
+        "id": "6df23614d9752e6f",
+        "type": "inject",
+        "z": "0e31437fd6fb648b",
+        "name": "Inject Legend",
+        "props": [
+            {
+                "p": "payload.command",
+                "v": "{ \"legend\": \"<b>Mode</b></br> <i style=\\\"background: #424242\\\"></i> CW<br> <i style=\\\"background: #3A5795\\\"></i> Digital<br> <i style=\\\"background: #D50000\\\"></i> SSB<br> <br>\"}",
+                "vt": "jsonata"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "x": 740,
+        "y": 640,
+        "wires": [
+            [
+                "44ef710fb942b6c5"
+            ]
+        ]
+    },
+    {
+        "id": "d1387cc1037fbd58",
+        "type": "function",
+        "z": "0e31437fd6fb648b",
+        "name": "Set iconColor",
+        "func": "var mode = msg.iconColor;\n// iconColor\nif (mode == \"CW\"){\n    iconColor = \"#424242\";\n} else if (mode === \"USB\" || mode === \"LSB\" ){\n    iconColor = \"#D50000\";\n} else {\n    iconColor = \"#3A5795\"; // Blue\n}\n\n\nmsg.iconColor = iconColor ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 420,
+        "wires": [
+            [
+                "a4377aaba42f9dd3",
+                "5ab115c61b26213d"
+            ]
+        ]
+    },
+    {
+        "id": "5ab115c61b26213d",
+        "type": "debug",
+        "z": "0e31437fd6fb648b",
+        "name": "Set iconColor debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "928075864acfb016",
+        "type": "inject",
+        "z": "0e31437fd6fb648b",
+        "name": "Add event location",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{ \"name\":\"Event\", \"lat\":39.567, \"lon\":-104.837,\"icon\":\"fa-home\",\"iconColor\":iconColor }",
+        "payloadType": "jsonata",
+        "x": 750,
+        "y": 700,
+        "wires": [
+            [
+                "44ef710fb942b6c5"
+            ]
+        ]
+    }
+]
