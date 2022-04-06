@@ -250,7 +250,7 @@
     {
         "id": "4f23a2fcde504398",
         "type": "ui_tab",
-        "name": "W0R Event Statistics",
+        "name": "Statistics",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
@@ -1391,8 +1391,8 @@
         "name": "Display event radios",
         "order": 1,
         "width": 20,
-        "height": 2,
-        "format": "<style>\n\n@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=M+PLUS+Rounded+1c:wght@800&family=Mohave:wght@300&family=Montserrat:wght@200&family=Orbitron&display=swap');\n\n.freq-text {\n    font-family: 'M PLUS Rounded 1c', sans-serif;\n    font-size: 20x !important;\n    color: green !important;\n    text-align: center;\n}\n</style>\n<!--font-family: 'Aclonica', sans-serif;-->\n<!--font-family: 'M PLUS Rounded 1c', sans-serif;-->\n<!--font-family: 'Mohave', sans-serif;-->\n<!--font-family: 'Montserrat', sans-serif;-->\n<!--font-family: 'Orbitron', sans-serif;-->\n<div style=\"text-align:center;color:green;font-size:50px;font-family: 'M PLUS Rounded 1c', sans-serif;\">Operating on {{msg.payload}}</div>\n",
+        "height": "4",
+        "format": "<style>\n    @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=M+PLUS+Rounded+1c:wght@800&family=Mohave:wght@300&family=Montserrat:wght@200&family=Orbitron&display=swap');\n\n    .freq-text {\n        font-family: 'M PLUS Rounded 1c', sans-serif;\n        font-size: 20x !important;\n        color: green !important;\n        text-align: center;\n    }\n</style>\n<!--font-family: 'Aclonica', sans-serif;-->\n<!--font-family: 'M PLUS Rounded 1c', sans-serif;-->\n<!--font-family: 'Mohave', sans-serif;-->\n<!--font-family: 'Montserrat', sans-serif;-->\n<!--font-family: 'Orbitron', sans-serif;-->\n<div style=\"text-align:center;color:green;font-size:40px;font-family: 'M PLUS Rounded 1c', sans-serif;\">Operating on\n</div>\n\n<div style=\"text-align:center;color:black;font-size:30px;font-family: 'M PLUS Rounded 1c', sans-serif;\">\n    {{msg.radios[0].newFreq}}</div>\n<div style=\"text-align:center;color:black;font-size:30px;font-family: 'M PLUS Rounded 1c', sans-serif;\">\n    {{msg.radios[1].newFreq}}</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -1582,7 +1582,7 @@
         "type": "function",
         "z": "5ab66de2994a2994",
         "name": "",
-        "func": "var newMsg = { payload: msg.payload.length };\n// node.warn(\"payload\", msg)\nvar freq = msg.payload[0].Freq;\nvar mode = msg.payload[0].Mode;\nvar hz = freq.slice(-2);\nvar khz = freq.slice(-5,-2);\nvar mhz = freq.slice(0,-5);\n\n//    radios.push(mhz.toString() + '.' + khz.toString() + '.' + hz.toString() + \"   Mode: \" + mode);\n\nmsg.payload = mhz.toString() + '.' + khz.toString() + '.' + hz.toString() + \"   Mode: \" + mode;\nreturn msg;",
+        "func": "var newMsg = [];\nnode.warn(msg.payload.length);\nfor (var i = 0; i < msg.payload.length; i++) {\n    var newFreq = \"\";\n    node.warn(i.toString());\n    var freq = msg.payload[i].Freq;\n    node.warn(freq);\n    var mode = msg.payload[i].Mode;\n    var hz = freq.slice(-2);\n    var khz = freq.slice(-5, -2);\n    var mhz = freq.slice(0, -5);\n    newFreq = mhz.toString() + '.' + khz.toString() + '.' + hz.toString() + '   Mode: ' + mode;\n    node.warn(newFreq);\n    newMsg.push({ newFreq });\n    // newMsg = mhz.toString() + '.' + khz.toString() + '.' + hz.toString() + '   Mode: ' + mode;\n    // node.warn(newMsg);\n}\n// msg.payload = mhz.toString() + '.' + khz.toString() + '.' + hz.toString() + \"   Mode: \" + mode;\nnode.warn(\"it \" + JSON.stringify(newMsg));\nmsg.radios = newMsg;\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
